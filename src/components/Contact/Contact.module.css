@@ -1,0 +1,10 @@
+.list_group_item {
+  padding: 5px;
+}
+.btn {
+  margin-left: 15px;
+  font: inherit;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid grey;
+}
