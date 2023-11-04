@@ -1,3 +1,5 @@
+import { Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
 import { deleteContactThunk } from 'store/contact/actions';
 import { deleteContactSync } from 'store/contact/slice';
@@ -9,17 +11,19 @@ const Contact = ({ contact }) => {
     dispatch(deleteContactThunk(id));
     dispatch(deleteContactSync(id));
   };
+
   return (
     <li className={css.list_group_item}>
-      {contact.name + ' : ' + contact.phone}
-      <button
+      {contact.name + ' : ' + contact.number}
+      <Button
+        variant="outlined"
+        startIcon={<DeleteIcon />}
         type="button"
-        className={css.btn}
         aria-label="Close"
         onClick={() => handleDelete(contact.id)}
       >
         Delete
-      </button>
+      </Button>
     </li>
   );
 };

@@ -1,8 +1,8 @@
+import { Button } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContactThunk } from 'store/contact/actions';
 import { selectorCreateContacts } from 'store/contact/selectors';
-import css from './CreateContact.module.css';
 
 const FormCreateContact = () => {
   const [name, setName] = useState('');
@@ -29,14 +29,18 @@ const FormCreateContact = () => {
     if (isAlreadyExist) {
       resetForm();
       return alert(`${name} is already in contacts`);
-    } else dispatch(addContactThunk({ name, phone, isValid }));
+    } else dispatch(addContactThunk({ name, number: phone, isValid }));
     resetForm();
   };
 
   return (
-    <form className={css.form_contact} onSubmit={handleSubmit}>
-      <div className={css.input_contact}>
-        <label htmlFor="inputName" className={css.form_label}>
+    <form
+      className="card p-3 mx-auto mt-3"
+      style={{ width: 500 }}
+      onSubmit={handleSubmit}
+    >
+      <div className="mb-3">
+        <label htmlFor="inputName" className="form-label">
           Name
         </label>
         <input
@@ -44,22 +48,22 @@ const FormCreateContact = () => {
           name="name"
           value={name}
           onChange={handleChange}
-          className={`${css.form_control} ${!isValid && 'is-invalid'}`}
+          className={`${'form-control'} ${!isValid && 'is-invalid'}`}
           id="inputName"
           // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
       </div>
-      <div className={css.input_contact}>
-        <label htmlFor="inputNumber" className={css.form_label}>
+      <div className="mb-3">
+        <label htmlFor="inputNumber" className="form-label">
           Phone
         </label>
         <input
           type="tel"
           name="phone"
           onChange={handleChange}
-          className={`${css.form_control} ${!isValid && 'is-invalid'}`}
+          className={`${'form-control'} ${!isValid && 'is-invalid'}`}
           id="inputNumber"
           value={phone}
           // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -67,9 +71,9 @@ const FormCreateContact = () => {
           required
         />
       </div>
-      <button type="submit" className={css.btn}>
+      <Button type="submit" variant="contained">
         Add contact
-      </button>
+      </Button>
     </form>
   );
 };

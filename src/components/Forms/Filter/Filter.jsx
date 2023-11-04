@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { filterContact } from 'store/contact/slice';
-import css from './Filter.module.css';
 
 const FormFilterContact = () => {
   const dispatch = useDispatch();
@@ -9,15 +8,15 @@ const FormFilterContact = () => {
     dispatch(filterContact(value));
   };
   return (
-    <div className={css.filter}>
-      <label htmlFor="inputName" className={css.form_label}>
+    <div className="mb-3">
+      <label htmlFor="inputName" className="form-label">
         Find contacts by name
       </label>
       <input
         type="text"
         name="name"
         onChange={handleChange}
-        className={css.form_control}
+        className="form-control"
         id="inputName"
       />
     </div>

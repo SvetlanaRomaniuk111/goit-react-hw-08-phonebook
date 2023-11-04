@@ -29,6 +29,7 @@ export const handleFulfilledFetch = (state, { payload }) => {
 };
 
 export const handleFulfilledAdd = (state, { payload }) => {
+  console.log(payload)
   state.items = [...state.items, payload];
 };
 

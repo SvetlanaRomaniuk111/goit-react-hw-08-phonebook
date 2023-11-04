@@ -1,5 +1,4 @@
 import Contact from '../Contact/Contact';
-import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorContactList } from 'store/contact/selectors';
 import { useEffect } from 'react';
@@ -17,7 +16,7 @@ const ContactList = () => {
   return (
     <div>
       {items && (
-        <ul className={css.list_group}>
+        <ul>
           {(filteredItems ?? items).map(el => (
             <Contact contact={el} key={el.id} />
           ))}

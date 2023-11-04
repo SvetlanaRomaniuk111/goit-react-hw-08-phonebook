@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: antiquewhite;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -12,6 +13,22 @@ code {
     monospace;
 }
 
+h2 {
+  margin-top: 10px;
+}
+
 .container {
-  padding: 10px 40px;
+  padding: 30px 40px;
+}
+
+.home_page {
+  text-align: center;
+  margin-top: 30%;
+  font-family: Roboto, italic;
+  font-weight: 400;
+  font-size: 3rem;
+}
+
+.span {
+  padding-left: 50px;
 }
